@@ -1,18 +1,18 @@
-Codigo para generar numeros aleatorios al compilar e incrustarlos en el codigo
-que se programa en el micro.
+//Codigo para generar numeros aleatorios al compilar e incrustarlos en el codigo
+//que se programa en el micro.
 
-Esta funcion como ejemplo, crea 3 numeros unicos para usar en la mac
-y que sea distinta en cada compilacion.
+//Esta funcion como ejemplo, crea 3 numeros unicos para usar en la mac
+//y que sea distinta en cada compilacion.
 
-Yo he usado hora minutos y segundos porque asi es casi imposible que re repitan las mac.
-Se puede complicar mas pero a mi me valia asi.
+//Yo he usado hora minutos y segundos porque asi es casi imposible que re repitan las mac.
+//Se puede complicar mas pero a mi me valia asi.
 
 
 //SE PONE EL INCLUDE
 #include <avr/pgmspace.h>
-..
-..
-..
+//..
+//..
+//..
 
 //ESTO SE PONE DESPUES DEL ULTIMO "DEFINE" DE NUESTRO PROGRAMA
 // EN LA PARTE SUPERIOR
@@ -22,15 +22,15 @@ const char CompileTIME[] PROGMEM = __TIME__;
 
 // Obten la fecha de compilación 
 //const char CompileDATE[] PROGMEM = __DATE__; 
-...
-...
-...
+//...
+//...
+//...
 
 //MI VARIABLE DE DIRECCION MAC
 byte mymac[] = { 0x10, 0xA9, 0x69, 0xEF, 0xFE, 0xEE };
-..
-..
-..
+//..
+//..
+//..
 
 
 
