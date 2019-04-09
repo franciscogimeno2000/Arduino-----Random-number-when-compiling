@@ -12,7 +12,8 @@ Yo he usado hora minutos y segundos porque asi es casi imposible que re repitan 
 Se puede complicar mas pero a mi me valia asi.
 
 
-
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
 
 Code to generate random numbers when compiling and embedding them in the code
 that is programmed in the micro.
