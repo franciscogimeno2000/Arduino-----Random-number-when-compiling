@@ -1,0 +1,66 @@
+Codigo para generar numeros aleatorios al compilar e incrustarlos en el codigo
+que se programa en el micro.
+
+Esta funcion como ejemplo, crea 3 numeros unicos para usar en la mac
+y que sea distinta en cada compilacion.
+
+Yo he usado hora minutos y segundos porque asi es casi imposible que re repitan las mac.
+Se puede complicar mas pero a mi me valia asi.
+
+
+//SE PONE EL INCLUDE
+#include <avr/pgmspace.h>
+..
+..
+..
+
+//ESTO SE PONE DESPUES DEL ULTIMO "DEFINE" DE NUESTRO PROGRAMA
+// EN LA PARTE SUPERIOR
+
+// Obten la hora de compilación 
+const char CompileTIME[] PROGMEM = __TIME__;
+
+// Obten la fecha de compilación 
+//const char CompileDATE[] PROGMEM = __DATE__; 
+...
+...
+...
+
+//MI VARIABLE DE DIRECCION MAC
+byte mymac[] = { 0x10, 0xA9, 0x69, 0xEF, 0xFE, 0xEE };
+..
+..
+..
+
+
+
+//LA FUNCION---------------------------------------------
+void CargaMacUnica(void)
+{
+char myChar;
+String cad = "";
+long var1;
+
+//LA VARIABLE COMPILETIME TIENE ESTE FORMATO:
+//20:38:56 
+
+cad = String(myChar = pgm_read_byte(CompileTIME + 0));
+cad = cad + String(myChar = pgm_read_byte(CompileTIME + 1));
+var1 = cad.toInt();
+mymac[3] = var1;
+
+cad = String(myChar = pgm_read_byte(CompileTIME + 3));
+cad = cad + String(myChar = pgm_read_byte(CompileTIME + 4));
+var1 = cad.toInt();
+mymac[4] = var1;
+
+cad = String(myChar = pgm_read_byte(CompileTIME + 6));
+cad = cad + String(myChar = pgm_read_byte(CompileTIME + 7));
+var1 = cad.toInt();
+mymac[5] = var1;
+
+return;
+}
+
+//espero que os sirva.
+//saludos
